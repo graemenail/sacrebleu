@@ -293,6 +293,8 @@ def print_test_set(test_set, langpair, fields, origlang=None, subset=None):
         sys.exit(1)
     elif "all" in fields:
         fields = fieldnames
+    elif "ref" in fields and "ref" not in fieldnames:
+        fields = [field for field in fieldnames if "ref:" in field]
 
     files = []
     for field in fields:
